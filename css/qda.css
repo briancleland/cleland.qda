@@ -4,7 +4,7 @@
 }
 
 #tree-holder {
-  background: #ddd;
+  background: lightgray;
   padding: 10px;
   border: 1px solid #ccc;
   float: left;
@@ -12,24 +12,15 @@
   width: 280px;
   overflow: scroll;
   position: relative;
+  border-radius: 3px;
 }
 
 #tree {
-  margin-top: 15px;
-}
-
-#add-node-button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 150%;
-  cursor: pointer;
-  color: #888;
 }
 
 #snippets {
-  background: #ddd;
-  border: 1px solid #ccc;
+/*  background: #ddd;*/
+/*  border: 1px solid #ccc;*/
   padding: 10px;
   float: left;
   margin: 10px 0 10px 340px;
@@ -60,17 +51,9 @@
 }
 
 .snippet-text.selected {
-  background: #eee;
+  background: lightgray;
   border-radius: 4px;
-}
-
-#snippets-panel-close {
-  cursor: pointer;
-  float: right;
-  margin-right: 8px;
-  margin-top: 3px;
-  font-size: 120%;
-  color: #888;
+  color: darkgreen;
 }
 
 ul .jqtree-element {
@@ -119,4 +102,37 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
   margin-left: 5px;
   color: #666;
   vertical-align: middle;
+}
+
+#qda-menu {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  background: #999;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+}
+
+#snippets-panel-close {
+  cursor: pointer;
+  position: absolute;
+  font-size: 120%;
+  color: #fff;
+  top: 4px;
+  right: 20px;
+}
+
+
+#add-node-button {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  cursor: pointer;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.jqtree-title {
+  color: #444 !important;
 }
