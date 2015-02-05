@@ -1,0 +1,12 @@
+{
+    "name": "cleland-qda",
+    "title": "QDA",
+    "description": "QDA implementation for Brackets",
+    "homepage": "http://artoale.com/tutorial/brackets/2013/09/30/writing-brackets-extension-01/",
+    "version": "0.0.1",
+    "author": "Brian Cleland <brian_cleland@yahoo.com> (https://github.com/briancleland)",
+    "license": "MIT",
+    "engines": {
+        "brackets": ">=0.31.0"
+    }
+}
