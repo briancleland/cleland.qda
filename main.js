@@ -13,15 +13,15 @@ define(function (require, exports, module) {
     NativeApp = brackets.getModule("utils/NativeApp");
 
   var CodeMirror = brackets.getModule("thirdparty/CodeMirror2/lib/codemirror");
-  var SimpleMode = require("lib/simple");
+  var SimpleMode = require("lib/codemirror/simple");
 
   var DO_HASHTAGS = "findHashtags.run";
-  var panelHtml = require("text!panel.html");
+  var panelHtml = require("text!html/panel.html");
   var panel;
 
   require("lib/qdaSimpleMode");
   require("lib/jqtree/tree.jquery");
-  var _jqtree = require("lib/jqtree.main");
+  var _tree = require("lib/tree");
   var _find = require("lib/find");
 
   function _qdaBrowser() {
@@ -39,7 +39,7 @@ define(function (require, exports, module) {
     //    require("jstree/dist/jstree.min");
     var viewMenu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
     viewMenu.addMenuItem(DO_HASHTAGS);
-    ExtensionUtils.loadStyleSheet(module, "qda.css");
+    ExtensionUtils.loadStyleSheet(module, "css/qda.css");
     ExtensionUtils.loadStyleSheet(module, "lib/jqtree/jqtree.css");
     //    ExtensionUtils.loadStyleSheet(module, "jstree/dist/themes/default/style.min.css");
     panel = PanelManager.createBottomPanel(DO_HASHTAGS, $(panelHtml), 300);
@@ -59,7 +59,7 @@ define(function (require, exports, module) {
       lineComment: ["--"]
     });
     // Init jqtree
-    _jqtree.init();
+    _tree.init();
   });
 
 
