@@ -36,12 +36,10 @@ define(function (require, exports, module) {
   CommandManager.register("Find Hashtags", DO_HASHTAGS, _qdaBrowser);
 
   AppInit.appReady(function () {
-    //    require("jstree/dist/jstree.min");
     var viewMenu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
     viewMenu.addMenuItem(DO_HASHTAGS);
     ExtensionUtils.loadStyleSheet(module, "css/qda.css");
     ExtensionUtils.loadStyleSheet(module, "lib/jqtree/jqtree.css");
-    //    ExtensionUtils.loadStyleSheet(module, "jstree/dist/themes/default/style.min.css");
     panel = PanelManager.createBottomPanel(DO_HASHTAGS, $(panelHtml), 300);
     $("#snippets-panel-close").click(function () {
       panel.hide();
