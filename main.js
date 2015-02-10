@@ -40,6 +40,7 @@ define(function (require, exports, module) {
     viewMenu.addMenuItem(DO_HASHTAGS);
     ExtensionUtils.loadStyleSheet(module, "css/qda.css");
     ExtensionUtils.loadStyleSheet(module, "lib/jqtree/jqtree.css");
+    ExtensionUtils.loadStyleSheet(module, "css/font-awesome/css/font-awesome.min.css");
     panel = PanelManager.createBottomPanel(DO_HASHTAGS, $(panelHtml), 300);
     $("#snippets-panel-close").click(function () {
       panel.hide();

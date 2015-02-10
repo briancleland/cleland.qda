@@ -1,6 +1,3 @@
-.snippets-panel{
-}
-
 #tree-holder {
   background: lightgray;
   padding: 10px;
@@ -127,4 +124,8 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
 
 .jqtree-title {
   color: #444 !important;
+}
+
+#qda-panel .fa {
+  margin-right: 5px;
 }
