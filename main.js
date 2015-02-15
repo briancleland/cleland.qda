@@ -15,7 +15,7 @@ define(function (require, exports, module) {
   var CodeMirror = brackets.getModule("thirdparty/CodeMirror2/lib/codemirror");
   var SimpleMode = require("lib/codemirror/simple");
 
-  var DO_HASHTAGS = "findHashtags.run";
+  var DO_QDA = "qda.run";
   var panelHtml = require("text!html/panel.html");
   var panel;
 
@@ -33,15 +33,15 @@ define(function (require, exports, module) {
     }
   }
   
-  CommandManager.register("Find Hashtags", DO_HASHTAGS, _qdaBrowser);
+  CommandManager.register("QDA Browser", DO_QDA, _qdaBrowser);
 
   AppInit.appReady(function () {
     var viewMenu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
-    viewMenu.addMenuItem(DO_HASHTAGS);
+    viewMenu.addMenuItem(DO_QDA);
     ExtensionUtils.loadStyleSheet(module, "css/qda.css");
     ExtensionUtils.loadStyleSheet(module, "lib/jqtree/jqtree.css");
     ExtensionUtils.loadStyleSheet(module, "css/font-awesome/css/font-awesome.min.css");
-    panel = PanelManager.createBottomPanel(DO_HASHTAGS, $(panelHtml), 300);
+    panel = PanelManager.createBottomPanel(DO_QDA, $(panelHtml), 300);
     $("#snippets-panel-close").click(function () {
       panel.hide();
     });
