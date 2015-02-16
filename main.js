@@ -20,6 +20,7 @@ define(function (require, exports, module) {
   var panel;
 
   require("lib/qdaSimpleMode");
+  require("lib/qdaHint");
   require("lib/jqtree/tree.jquery");
   var _tree = require("lib/tree");
   var _find = require("lib/find");
