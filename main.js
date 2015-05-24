@@ -4,6 +4,7 @@ define(function (require, exports, module) {
     CommandManager = brackets.getModule("command/CommandManager"),
     Commands = brackets.getModule("command/Commands"),
     DocumentManager = brackets.getModule("document/DocumentManager"),
+    ProjectManager = brackets.getModule("project/ProjectManager"),
     EditorManager = brackets.getModule("editor/EditorManager"),
     PanelManager = brackets.getModule("view/PanelManager"),
     KeyBindingManager = brackets.getModule("command/KeyBindingManager"),
@@ -33,7 +34,8 @@ define(function (require, exports, module) {
       panel.hide();
     } else {
       panel.show();
-      _find.hashtags();
+      _tree.init();
+//      _find.hashtags();
     }
   }
 
@@ -89,8 +91,10 @@ define(function (require, exports, module) {
       blockComment: ["{-", "-}"],
       lineComment: ["--"]
     });
-    // Init jqtree
-    _tree.init();
+    ProjectManager.on("projectOpen", function() { 
+      console.log("NEW PROJECT!!");
+      _tree.init() 
+    });
   });
 
 
