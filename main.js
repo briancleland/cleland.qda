@@ -92,7 +92,6 @@ define(function (require, exports, module) {
       lineComment: ["--"]
     });
     ProjectManager.on("projectOpen", function() { 
-      console.log("NEW PROJECT!!");
       _tree.init() 
     });
   });
