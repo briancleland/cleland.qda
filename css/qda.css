@@ -1,13 +1,15 @@
 #tree-holder {
-  background: lightgray;
+/*  background: lightgray;*/
   padding: 10px;
-  border: 1px solid #ccc;
+  border-right: 1px solid #ccc;
   float: left;
-  margin: 40px 0 10px 10px;
+  margin: 40px 0 0 10px;
   width: 280px;
-  overflow: scroll;
+  height: calc(100% - 72px);
+  overflow-y: scroll;
+  overflow-x: hidden;
   position: relative;
-  border-radius: 3px;
+/*  border-radius: 3px;*/
 }
 
 #tree {
@@ -17,34 +19,39 @@
   padding: 10px;
   float: left;
   margin: 30px 0 0px 20px;
-  width: 540px;
+  width: calc(100% - 360px);
+  overflow: scroll;
+  height: calc(100% - 50px);
 }
 
 .snippet-text {
-  color: green;
+  color: #444;
   cursor: pointer;
   padding: 5px;
 }
 
 .filename {
   margin: 0.5em 0 0 0;
-  color: #000;
+  color: #444;
+  font-weight: bold;
 }
 
 .line-number {
   font-weight: bold;
 }
 
-.bottom-panel {
-  overflow: scroll;
+#qda-panel {
+  background: white;
+  overflow: hidden;
   user-select: all;
   -webkit-user-select: all;
+  font-family: sans-serif;
 }
 
 .snippet-text.selected {
-  background: lightgray;
+  background: #D6FFC2;
   border-radius: 4px;
-  color: darkgreen;
+/*  color: black;*/
 }
 
 .contextMenuStyle {
@@ -109,13 +116,15 @@ ul .jqtree-element {
 
 ul.jqtree-tree li.jqtree-selected > .jqtree-element,
 ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
-  background: #bbb !important;
+  background: #D6FFC2 !important;
   border-radius: 3px;
+  color: white !important;
 }
 
 
-.jqtree-toggler.jqtree-closed {
-  font-size: 74%;
+.jqtree-toggler {
+  font-size: 80%;
+  color: #666;
 }
 
 #qda-panel .jqtree-title {
@@ -125,6 +134,7 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
 
 #qda-panel .jqtree-title.jqtree-title-folder {
   margin-left: 0 !important;
+/*  font-weight: bold;*/
 }
 
 #qda-panel .fa {
