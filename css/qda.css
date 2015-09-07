@@ -32,9 +32,13 @@
 }
 
 .filename {
-  margin: 0.5em 0 0 0;
   color: #444;
   font-weight: bold;
+  /* background: #eee; */
+  /* padding: 2px 4px; */
+  margin: 15px 0px 0px;
+  /* border-radius: 3px; */
+  /* font-size: 90%; */
 }
 
 .line-number {
@@ -101,7 +105,7 @@
   border-radius: 3px;
   margin: 0px 0 0 15px;
   /* border: 1px solid #ccc; */
-/*  font-size: 90%;*/
+  font-size: 90%;
   /* background: #eee; */
   color: #eee;
 }
@@ -113,6 +117,7 @@
   border-radius: 3px;
   margin: 0px 0 0 105px;
   color: #eee;
+  font-size: 90%;
 }
 
 /*********** jqTree stuff ************/
@@ -205,3 +210,10 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
   color: #666;
 }
 
+#num-results {
+  position: fixed;
+  color: white;
+  right: 240px;
+  padding-top: 1px;
+  font-size: 90%;
+}
