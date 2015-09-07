@@ -1,11 +1,10 @@
 #tree-holder {
 /*  background: lightgray;*/
-  padding: 10px;
-  border-right: 1px solid #ccc;
+/*  padding: 10px;*/
   float: left;
-  margin: 40px 0 0 10px;
+  margin: 40px 10px 0 10px;
   width: 280px;
-  height: calc(100% - 72px);
+  height: calc(100% - 10px);
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;
@@ -16,12 +15,14 @@
 }
 
 #snippets {
-  padding: 10px;
+  padding: 10px 20px;
   float: left;
-  margin: 30px 0 0px 20px;
+  margin: 30px 0 0px 0px;
   width: calc(100% - 360px);
   overflow: scroll;
-  height: calc(100% - 50px);
+  height: calc(100% - 20px);
+  border-left: 1px solid #ddd;
+  list-style: none;
 }
 
 .snippet-text {
@@ -49,7 +50,8 @@
 }
 
 .snippet-text.selected {
-  background: #D6FFC2;
+/*  background: #D6FFC2;*/
+  background: #eee;
   border-radius: 4px;
 /*  color: black;*/
 }
@@ -79,8 +81,7 @@
   position: fixed;
   width: 100%;
   height: 20px;
-  background: #999;
-  border-bottom: 1px solid #ccc;
+  background: #666;
   padding: 5px;
   z-index: 10;
 }
@@ -93,13 +94,34 @@
   right: 40px;
 }
 
-
-#add-node-button {
+#add-group-button {
   position: fixed;
   cursor: pointer;
-  color: #fff;
-  padding: 2px 6px;
+  padding: 1px 6px 0px;
   border-radius: 3px;
+  margin: 0px 0 0 15px;
+  /* border: 1px solid #ccc; */
+/*  font-size: 90%;*/
+  /* background: #eee; */
+  color: #eee;
+}
+
+#add-search-button {
+  position: fixed;
+  cursor: pointer;
+  padding: 1px 6px 0px;
+  border-radius: 3px;
+  margin: 0px 0 0 105px;
+  color: #eee;
+}
+
+#add-filter-button {
+  position: fixed;
+  cursor: pointer;
+  padding: 1px 6px 0px;
+  border-radius: 3px;
+  margin: 0px 0 0 195px;
+  color: #eee;
 }
 
 /*********** jqTree stuff ************/
@@ -116,11 +138,11 @@ ul .jqtree-element {
 
 ul.jqtree-tree li.jqtree-selected > .jqtree-element,
 ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
-  background: #D6FFC2 !important;
+/*  background: #D6FFC2 !important;*/
+  background: #eee !important;
   border-radius: 3px;
   color: white !important;
 }
-
 
 .jqtree-toggler {
   font-size: 80%;
@@ -129,7 +151,7 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
 
 #qda-panel .jqtree-title {
   margin-left: 14px !important;
-  color: #444 !important;
+  color: #444;
 }
 
 #qda-panel .jqtree-title.jqtree-title-folder {
@@ -140,3 +162,75 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
 #qda-panel .fa {
   margin-right: 5px;
 }
+
+#tag-browser, #regex-browser {
+  height: calc(100% - 30px);
+}
+
+#tag-browser {
+  display: block;
+}
+
+#regex-browser {
+  display: none;
+}
+
+#tag-browser-button {
+  position: absolute;
+  left: 20px;
+  color: #fff;
+  cursor: pointer;
+  /* border-radius: 3px; */
+  /* background: #ccc; */
+  /* padding: 0px 6px; */
+  font-size: 90%;
+  border-bottom: 2px solid #fff;
+  height: 23px;
+}
+
+#regex-browser-button {
+  position: absolute;
+  left: 110px;
+  color: #fff;
+  cursor: pointer;
+  /* border-radius: 3px; */
+  /* background: #ccc; */
+  /* padding: 0px 6px; */
+  font-size: 90%;
+  border-bottom: 0px solid #fff;
+  height: 23px;
+}
+
+.fa-question-circle {
+ color: #6d8600 !important;
+}
+
+.fa-folder {
+ color: #446fbd !important;
+}
+
+.fa-tag {
+ color: #e88501 !important;
+}
+
+#filter-text {
+  border: 1px solid #aaa;
+  right: 60px;
+  font-size: 90%;
+  height: 10px;
+  position: fixed;
+  width: 150px;
+  background: transparent;
+  color: #fff;
+}
+
+#filter-text:focus {
+  border: 1px solid #aaa !important;
+  box-shadow: none !important;
+}
+
+.path {
+  font-size: 90%;
+  color: #666;
+}
+

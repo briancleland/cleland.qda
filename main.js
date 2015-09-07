@@ -25,6 +25,7 @@ define(function (require, exports, module) {
 
   require("lib/qdaSimpleMode");
   require("lib/qdaHint");
+  require("lib/jquery.fastLiveFilter");
   require("lib/jqtree/tree.jquery");
   var _tree = require("lib/tree");
   var _find = require("lib/find");
@@ -94,6 +95,9 @@ define(function (require, exports, module) {
     ProjectManager.on("projectOpen", function() { 
       _tree.init() 
     });
+    DocumentManager.on('documentSaved', function() { 
+      _tree.init()
+    }); 
   });
 
 
