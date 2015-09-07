@@ -115,15 +115,6 @@
   color: #eee;
 }
 
-#add-filter-button {
-  position: fixed;
-  cursor: pointer;
-  padding: 1px 6px 0px;
-  border-radius: 3px;
-  margin: 0px 0 0 195px;
-  color: #eee;
-}
-
 /*********** jqTree stuff ************/
 
 /*
@@ -163,16 +154,9 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
   margin-right: 5px;
 }
 
-#tag-browser, #regex-browser {
-  height: calc(100% - 30px);
-}
-
 #tag-browser {
+  height: calc(100% - 30px);
   display: block;
-}
-
-#regex-browser {
-  display: none;
 }
 
 #tag-browser-button {
@@ -185,19 +169,6 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
   /* padding: 0px 6px; */
   font-size: 90%;
   border-bottom: 2px solid #fff;
-  height: 23px;
-}
-
-#regex-browser-button {
-  position: absolute;
-  left: 110px;
-  color: #fff;
-  cursor: pointer;
-  /* border-radius: 3px; */
-  /* background: #ccc; */
-  /* padding: 0px 6px; */
-  font-size: 90%;
-  border-bottom: 0px solid #fff;
   height: 23px;
 }
 
