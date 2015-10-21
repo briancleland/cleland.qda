@@ -1,3 +1,6 @@
+$ = jQuery
+
+
 Position =
     getName: (position) ->
         return Position.strings[position - 1]
@@ -37,6 +40,8 @@ class Node
                     @name = value
                 else
                     @[key] = value
+
+        return null
 
     # Init Node from data without making it the root of the tree
     initFromData: (data) ->
@@ -129,7 +134,7 @@ class Node
             @getChildIndex(node),
             1
         )
-        @tree.removeNodeFromIndex(node)        
+        @tree.removeNodeFromIndex(node)
 
     ###
     Get child index.
@@ -213,8 +218,8 @@ class Node
     ###
     Get the tree as data.
     ###
-    getData: ->
-        getDataFromNodes = (nodes) =>
+    getData: (include_parent=false) ->
+        getDataFromNodes = (nodes) ->
             data = []
 
             for node in nodes
@@ -234,7 +239,10 @@ class Node
 
             return data
 
-        return getDataFromNodes(@children)
+        if include_parent
+            return getDataFromNodes([this])
+        else
+            return getDataFromNodes(@children)
 
     getNodeByName: (name) ->
         result = null
@@ -359,7 +367,7 @@ class Node
             if next_index < @parent.children.length
                 return @parent.children[next_index]
             else
-                return null                
+                return null
 
     getNodesByProperty: (key, value) ->
         return @filter(

@@ -20,16 +20,26 @@
   list-style: none;
 }
 
+#snippets li {
+  margin-bottom: 10px;  
+}
+
 .snippet-text {
+  width: 100%;
   color: #444;
   cursor: pointer;
-  padding: 5px;
+  padding: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 10px;
 }
 
 .filename {
   color: #444;
   font-weight: bold;
-  margin: 10px 0px 0px;
+  margin: 10px 5px 10px 0px;
+  float: left;
 }
 
 .line-number {
@@ -197,6 +207,9 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
 .path {
   font-size: 90%;
   color: #666;
+/*  position: absolute;*/
+  margin-top: 10px;
+  float: left;
 }
 
 #num-results {

@@ -24,13 +24,18 @@ ScrollHandler = require './scroll_handler'
 SelectNodeHandler = require './select_node_handler'
 SimpleWidget = require './simple.widget'
 
-node = require './node'
-Node = node.Node
-Position = node.Position
+node_module = require './node'
+Node = node_module.Node
+Position = node_module.Position
+
+util_module = require './util'
 
 node_element = require './node_element'
 NodeElement = node_element.NodeElement
 FolderElement = node_element.FolderElement
+
+
+$ = jQuery
 
 
 class JqTreeWidget extends MouseWidget
@@ -50,13 +55,14 @@ class JqTreeWidget extends MouseWidget
         onLoadFailed: null
         autoEscape: true
         dataUrl: null
-        closedIcon: '&#x25ba;'  # The symbol to use for a closed node - ► BLACK RIGHT-POINTING POINTER  http://www.fileformat.info/info/unicode/char/25ba/index.htm
+        closedIcon: null  # The symbol to use for a closed node - ► BLACK RIGHT-POINTING POINTER  http://www.fileformat.info/info/unicode/char/25ba/index.htm
         openedIcon: '&#x25bc;'  # The symbol to use for an open node - ▼ BLACK DOWN-POINTING TRIANGLE  http://www.fileformat.info/info/unicode/char/25bc/index.htm
         slide: true  # must display slide animation?
         nodeClass: Node
         dataFilter: null
         keyboardSupport: true
         openFolderDelay: 500  # The delay for opening a folder during drag and drop; the value is in milliseconds
+        rtl: null  # right-to-left support; true / false (default)
 
     toggle: (node, slide=null) ->
         if slide == null
@@ -66,7 +72,7 @@ class JqTreeWidget extends MouseWidget
             @closeNode(node, slide)
         else
             @openNode(node, slide)
-    
+
     getTree: ->
         return @tree
 
@@ -91,7 +97,7 @@ class JqTreeWidget extends MouseWidget
 
         saveState = =>
             if @options.saveState
-                @save_state_handler.saveState()            
+                @save_state_handler.saveState()
 
         if not node
             # Called with empty node -> deselect current node
@@ -168,7 +174,7 @@ class JqTreeWidget extends MouseWidget
                 url_info.method = 'get'
 
         handeLoadData = (data) =>
-            removeLoadingClass()                
+            removeLoadingClass()
             @_loadData(data, parent_node)
 
             if on_finished and $.isFunction(on_finished)
@@ -322,7 +328,7 @@ class JqTreeWidget extends MouseWidget
     addParentNode: (new_node_info, existing_node) ->
         new_node = existing_node.addParent(new_node_info)
         @_refreshElements(new_node.parent)
-        return new_node    
+        return new_node
 
     removeNode: (node) ->
         parent = node.parent
@@ -340,7 +346,7 @@ class JqTreeWidget extends MouseWidget
         @_refreshElements(parent_node)
 
         return node
- 
+
     prependNode: (new_node_info, parent_node) ->
         if not parent_node
             parent_node = @tree
@@ -426,6 +432,11 @@ class JqTreeWidget extends MouseWidget
         @element = @$el
         @mouse_delay = 300
         @is_initialized = false
+
+        @options.rtl = @_getRtlOption()
+
+        if !@options.closedIcon
+            @options.closedIcon = @_getDefaultClosedIcon()
 
         @renderer = new ElementsRenderer(this)
 
@@ -559,7 +570,7 @@ class JqTreeWidget extends MouseWidget
                 else
                     node.is_open = true
                     return (level != max_level)
-    
+
             return must_load_on_demand
 
         [is_restored, must_load_on_demand] = restoreState()
@@ -597,7 +608,7 @@ class JqTreeWidget extends MouseWidget
                         if not node.is_loading
                             loadAndOpenNode(node)
 
-                        return false                        
+                        return false
                     else
                         @_openNode(node, false)
 
@@ -767,6 +778,34 @@ class JqTreeWidget extends MouseWidget
     _deselectCurrentNode: ->
         node = @getSelectedNode()
         if node
-            @removeFromSelection(node)        
+            @removeFromSelection(node)
+
+    _getDefaultClosedIcon: ->
+        if @options.rtl
+            # triangle to the left
+            return '&#x25c0;'
+        else
+            # triangle to the right
+            return '&#x25ba;'
+
+    _getRtlOption: ->
+        if @options.rtl != null
+            return @options.rtl
+        else
+            data_rtl = @element.data('rtl')
+
+            if data_rtl? and data_rtl != false
+                return true
+            else
+                return false
+
+
+JqTreeWidget.getModule = (name) ->
+    modules =
+        'node': node_module
+        'util': util_module
+
+    return modules[name]
+
 
 SimpleWidget.register(JqTreeWidget, 'tree')

@@ -5,6 +5,9 @@ util = require './util'
 html_escape = util.html_escape
 
 
+$ = jQuery
+
+
 class ElementsRenderer
     constructor: (tree_widget) ->
         @tree_widget = tree_widget
@@ -29,8 +32,6 @@ class ElementsRenderer
         $previous_li = $(node.element)
 
         # create element
-        parent_node_element = new NodeElement(node.parent, @tree_widget)
-
         li = @createLi(node)
         @attachNodeData(node, li)
 
@@ -64,10 +65,13 @@ class ElementsRenderer
         $(li).data('node', node)
 
     createUl: (is_root_node) ->
-        if is_root_node
-            class_string = 'jqtree-tree'
-        else
+        if !is_root_node
             class_string = ''
+        else
+            class_string = 'jqtree-tree'
+
+            if @tree_widget.options.rtl
+                class_string += ' jqtree-rtl'
 
         ul = document.createElement('ul')
         ul.className = "jqtree_common #{ class_string }"
