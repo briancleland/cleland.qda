@@ -9,9 +9,6 @@
   padding-top: 10px;
 }
 
-#tree {
-}
-
 #snippets {
   padding: 10px 20px;
   float: left;
@@ -32,11 +29,7 @@
 .filename {
   color: #444;
   font-weight: bold;
-  /* background: #eee; */
-  /* padding: 2px 4px; */
-  margin: 15px 0px 0px;
-  /* border-radius: 3px; */
-  /* font-size: 90%; */
+  margin: 10px 0px 0px;
 }
 
 .line-number {
@@ -55,7 +48,6 @@
 /*  background: #D6FFC2;*/
   background: #eee;
   border-radius: 4px;
-/*  color: black;*/
 }
 
 .contextMenuStyle {
@@ -91,9 +83,10 @@
 #snippets-panel-close {
   cursor: pointer;
   position: fixed;
-  font-size: 120%;
-  color: #fff;
-  right: 40px;
+  color: #eee;
+  right: 38px;
+  padding-top: 2px;
+  font-size: 16px;
 }
 
 #add-group-button {
@@ -187,7 +180,7 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
 
 #filter-text {
   border: 1px solid #aaa;
-  right: 60px;
+  right: 76px;
   font-size: 90%;
   height: 10px;
   position: fixed;
@@ -209,7 +202,23 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
 #num-results {
   position: fixed;
   color: white;
-  right: 240px;
+  right: 252px;
   padding-top: 1px;
   font-size: 90%;
+}
+
+#qda-browser-icon {
+  color: #bbb !important;
+  padding-top: 2px;
+  height: 18px !important;
+  text-decoration: none !important;
+}
+
+#qda-panel-reload {
+  cursor: pointer;
+  position: fixed;
+  font-size: 80%;
+  color: #eee;
+  right: 50px;
+  margin-top: 6px;
 }

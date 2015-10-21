@@ -36,7 +36,6 @@ define(function (require, exports, module) {
     } else {
       panel.show();
       _tree.init();
-//      _find.hashtags();
     }
   }
 
@@ -80,6 +79,9 @@ define(function (require, exports, module) {
     $("#snippets-panel-close").click(function () {
       panel.hide();
     });
+    $("#qda-panel-reload").click(function () {
+      _tree.init();
+    });
     // Create and configure QDA Codemmirror mode
     CodeMirror.defineSimpleMode("qda", qdaSimpleMode);
     CodeMirror.defineMIME("text/x-qda", "qda");
@@ -98,6 +100,14 @@ define(function (require, exports, module) {
     DocumentManager.on('documentSaved', function() { 
       _tree.init()
     }); 
+    var $icon = $("<a>")
+        .attr({
+            id: "qda-browser-icon",
+            class: "fa fa-search",
+            href: "#"
+        })
+        .click(_qdaBrowser)
+        .appendTo($("#main-toolbar .buttons"));
   });
 
 
